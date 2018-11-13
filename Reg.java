@@ -16,12 +16,12 @@ import javax.swing.UIManager;
 public class Reg extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
+	private JTextField name;
+	private JTextField dob;
+	private JTextField address;
+	private JTextField email;
+	private JTextField username;
+	private JTextField pass;
 
 	/**
 	 * Launch the application.
@@ -93,38 +93,53 @@ public class Reg extends JFrame {
 		lblEnmailId.setBounds(37, 123, 78, 19);
 		panel_1.add(lblEnmailId);
 		
-		textField = new JTextField();
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		textField.setBounds(180, 25, 86, 20);
-		panel_1.add(textField);
-		textField.setColumns(10);
+		name = new JTextField();
+		name.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		name.setBounds(180, 25, 86, 20);
+		panel_1.add(name);
+		name.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		textField_1.setColumns(10);
-		textField_1.setBounds(180, 57, 86, 20);
-		panel_1.add(textField_1);
+		dob = new JTextField();
+		dob.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		dob.setColumns(10);
+		dob.setBounds(180, 57, 86, 20);
+		panel_1.add(dob);
 		
-		textField_2 = new JTextField();
-		textField_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		textField_2.setColumns(10);
-		textField_2.setBounds(180, 90, 86, 20);
-		panel_1.add(textField_2);
+		address = new JTextField();
+		address.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		address.setColumns(10);
+		address.setBounds(180, 90, 86, 20);
+		panel_1.add(address);
 		
-		textField_3 = new JTextField();
-		textField_3.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		textField_3.setColumns(10);
-		textField_3.setBounds(180, 123, 86, 20);
-		panel_1.add(textField_3);
+		email = new JTextField();
+		email.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		email.setColumns(10);
+		email.setBounds(180, 123, 86, 20);
+		panel_1.add(email);
 		
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				Reg rg = new Reg();
-				rg.dispose();
-				Detail dt = new Detail();
-				dt.setVisible(true);
+				try {
+					User nuser = new User();
+					nuser.setName(name.getText());
+					nuser.setDob(dob.getText());
+					nuser.setAddress(address.getText());
+					nuser.setEmail(email.getText());
+					nuser.setUsername(username.getText());
+					nuser.setPass(pass.getText());
+					DBConnect connect = new DBConnect();
+					connect.setNuserData(nuser);
+					Reg rg = new Reg();
+					rg.dispose();
+					Detail dt = new Detail();
+					dt.setVisible(true);
+				}catch(NullPointerException e) {
+					System.out.println("Please fill all the fields"+e);
+					//TODO front-end: display an error with above message
+					// Then redirect to registration page.
+				}
 			}
 		});
 		btnSubmit.setBackground(UIManager.getColor("Button.background"));
@@ -144,16 +159,16 @@ public class Reg extends JFrame {
 		lblPassword.setBounds(37, 185, 78, 19);
 		panel_1.add(lblPassword);
 		
-		textField_4 = new JTextField();
-		textField_4.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		textField_4.setColumns(10);
-		textField_4.setBounds(180, 154, 86, 20);
-		panel_1.add(textField_4);
+		username = new JTextField();
+		username.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		username.setColumns(10);
+		username.setBounds(180, 154, 86, 20);
+		panel_1.add(username);
 		
-		textField_5 = new JTextField();
-		textField_5.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		textField_5.setColumns(10);
-		textField_5.setBounds(180, 186, 86, 20);
-		panel_1.add(textField_5);
+		pass = new JTextField();
+		pass.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		pass.setColumns(10);
+		pass.setBounds(180, 186, 86, 20);
+		panel_1.add(pass);
 	}
 }
