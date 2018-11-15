@@ -6,6 +6,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JSplitPane;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JTextField;
@@ -13,13 +14,12 @@ import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.UIManager;
-import javax.swing.JPasswordField;
 
 public class Test {
 
 	private JFrame frame;
-	private JTextField txtDfvdv;
-	private JPasswordField pass;
+	private JTextField username;
+	private JTextField password;
 
 	/**
 	 * Launch the application.
@@ -84,10 +84,15 @@ public class Test {
 		lblPassword.setBounds(25, 99, 94, 51);
 		panel_1.add(lblPassword);
 		
-		txtDfvdv = new JTextField();
-		txtDfvdv.setBounds(129, 66, 86, 20);
-		panel_1.add(txtDfvdv);
-		txtDfvdv.setColumns(10);
+		username = new JTextField();
+		username.setBounds(129, 66, 86, 20);
+		panel_1.add(username);
+		username.setColumns(10);
+		
+		password = new JTextField();
+		password.setBounds(129, 116, 86, 20);
+		panel_1.add(password);
+		password.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("New User?");
 		lblNewLabel.addMouseListener(new MouseAdapter() {
@@ -107,22 +112,24 @@ public class Test {
 		btnLogin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				frame.dispose();
 				User nuser = new User();
-				nuser.setUsername(lblUsername.getText());
-				nuser.setPass(lblPassword.getText());
-				Detail dt1 = new Detail(nuser);
-				dt1.setVisible(true);
-				
+				nuser.setUsername(username.getText());
+				nuser.setPass(password.getText());
+				DBConnect connect = new DBConnect();
+				boolean verify = connect.login(nuser);
+				if(verify) {
+					frame.dispose();
+					Detail dt1 = new Detail();
+					dt1.setVisible(true);
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Invalid Username and Password");
+				}
 			}
 		});
 		btnLogin.setBackground(UIManager.getColor("Button.background"));
 		btnLogin.setBounds(76, 161, 89, 23);
 		panel_1.add(btnLogin);
-		
-		pass = new JPasswordField();
-		pass.setBounds(129, 116, 86, 20);
-		panel_1.add(pass);
 		
 		
 	}
