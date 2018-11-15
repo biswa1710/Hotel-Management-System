@@ -8,7 +8,7 @@ public class DBConnect {
 	public DBConnect() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://172.16.46.182:3306/oop","root","");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/oop","root","");
 			st = con.createStatement();
 			
 		}catch(Exception e) {
@@ -16,7 +16,8 @@ public class DBConnect {
 		}
 	}
 	
-	public void setNuserData(User nuser) {
+	
+	public void setNuserData(User nuser) throws Exception {
 		try {
 			String query = "INSERT INTO users (name, dob, address, email, username, password) "
 			+ "VALUES ('" + nuser.getName() + "','" + nuser.getDob() + "','" + nuser.getAddress()+"','"+nuser.getEmail()+ "', '"+nuser.getUsername()+"', '"+nuser.getPass()+"' )";
@@ -25,5 +26,27 @@ public class DBConnect {
 		}catch(Exception e) {
 			System.out.println(e);
 		}
+	}
+	public boolean login (User nuser) {
+		String password = null;
+		String npassword = "a";
+		try {
+			String query = "SELECT*FROM users WHERE username = '"+nuser.getUsername()+"';";
+			rs = st.executeQuery(query);
+			rs.next();
+			npassword = nuser.getPass();
+			password = rs.getString("password");
+			
+		}catch(Exception e) {
+			System.out.println(e);
+			return false;
+		}
+		if(password.compareTo(npassword)==0) {
+			return true;
+		}
+		else {
+			return false;
+		}
+
 	}
 }
