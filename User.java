@@ -1,17 +1,53 @@
 
 public class User {
 
-	private String name;
+	private String Name;
 	private String dob;
 	private String address;
 	private String email;
 	private String username;
 	private String pass;
+	private String Location;
+	private String Check_in;
+	private String Check_out;
+	private String No_of_rooms;
+	private String No_of_people;
+	
 	public String getName() {
-		return name;
+		return Name;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setname(String name) {
+		Name= name;
+	}
+	public String getLocation() {
+		return Location;
+	}
+	public void setLocation(String location) {
+		Location = location;
+	}
+	public String getCheck_in() {
+		return Check_in;
+	}
+	public void setCheck_in(String check_in) {
+		Check_in = check_in;
+	}
+	public String getCheck_out() {
+		return Check_out;
+	}
+	public void setCheck_out(String check_out) {
+		Check_out = check_out;
+	}
+	public String getNo_of_rooms() {
+		return No_of_rooms;
+	}
+	public void setNo_of_rooms(String no_of_rooms) {
+		No_of_rooms = no_of_rooms;
+	}
+	public String getNo_of_people() {
+		return No_of_people;
+	}
+	public void setNo_of_people(String no_of_people) {
+		No_of_people = no_of_people;
 	}
 	public String getDob() {
 		return dob;

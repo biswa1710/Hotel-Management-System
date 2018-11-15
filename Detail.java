@@ -16,32 +16,21 @@ import javax.swing.UIManager;
 public class Detail extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	private JTextField Location;
+	private JTextField Check_in;
+	private JTextField Check_out;
+	private JTextField No_of_rooms;
+	private JTextField No_of_people;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Detail frame = new Detail();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the frame.
 	 */
-	public Detail() {
+	public Detail(User nuser) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -96,38 +85,45 @@ public class Detail extends JFrame {
 		lblNoOfPeople.setBounds(37, 168, 81, 33);
 		panel_1.add(lblNoOfPeople);
 		
-		textField = new JTextField();
-		textField.setBounds(128, 34, 86, 20);
-		panel_1.add(textField);
-		textField.setColumns(10);
+		Location = new JTextField();
+		Location.setBounds(128, 34, 86, 20);
+		panel_1.add(Location);
+		Location.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(128, 68, 86, 20);
-		panel_1.add(textField_1);
+		Check_in = new JTextField();
+		Check_in.setColumns(10);
+		Check_in.setBounds(128, 68, 86, 20);
+		panel_1.add(Check_in);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(128, 107, 86, 20);
-		panel_1.add(textField_2);
+		Check_out = new JTextField();
+		Check_out.setColumns(10);
+		Check_out.setBounds(128, 107, 86, 20);
+		panel_1.add(Check_out);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(128, 140, 86, 20);
-		panel_1.add(textField_3);
+		No_of_rooms = new JTextField();
+		No_of_rooms.setColumns(10);
+		No_of_rooms.setBounds(128, 140, 86, 20);
+		panel_1.add(No_of_rooms);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(128, 178, 86, 20);
-		panel_1.add(textField_4);
+		No_of_people = new JTextField();
+		No_of_people.setColumns(10);
+		No_of_people.setBounds(128, 178, 86, 20);
+		panel_1.add(No_of_people);
 		
 		JButton btnNewButton = new JButton("Go");
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				Detail dt3 = new Detail();
-				dt3.dispose();
-				Hotel h1 = new Hotel();
+				//booking object
+				nuser.setLocation(Location.getText());
+				nuser.setCheck_in(Check_in.getText());
+				nuser.setCheck_out(Check_out.getText());
+				nuser.setNo_of_rooms(No_of_rooms.getText());
+				nuser.setNo_of_people(No_of_people.getText());
+				System.out.println(nuser.getName());
+				//Detail dt3 = new Detail();
+				//dt3.dispose();
+				Hotel h1 = new Hotel(nuser);
 				h1.setVisible(true);
 			}
 		});

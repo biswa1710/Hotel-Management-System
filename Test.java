@@ -13,12 +13,13 @@ import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.UIManager;
+import javax.swing.JPasswordField;
 
 public class Test {
 
 	private JFrame frame;
 	private JTextField txtDfvdv;
-	private JTextField textField;
+	private JPasswordField pass;
 
 	/**
 	 * Launch the application.
@@ -88,11 +89,6 @@ public class Test {
 		panel_1.add(txtDfvdv);
 		txtDfvdv.setColumns(10);
 		
-		textField = new JTextField();
-		textField.setBounds(129, 116, 86, 20);
-		panel_1.add(textField);
-		textField.setColumns(10);
-		
 		JLabel lblNewLabel = new JLabel("New User?");
 		lblNewLabel.addMouseListener(new MouseAdapter() {
 			@Override
@@ -112,13 +108,21 @@ public class Test {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frame.dispose();
-				Detail dt1 = new Detail();
+				User nuser = new User();
+				nuser.setUsername(lblUsername.getText());
+				nuser.setPass(lblPassword.getText());
+				Detail dt1 = new Detail(nuser);
 				dt1.setVisible(true);
+				
 			}
 		});
 		btnLogin.setBackground(UIManager.getColor("Button.background"));
 		btnLogin.setBounds(76, 161, 89, 23);
 		panel_1.add(btnLogin);
+		
+		pass = new JPasswordField();
+		pass.setBounds(129, 116, 86, 20);
+		panel_1.add(pass);
 		
 		
 	}

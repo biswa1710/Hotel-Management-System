@@ -26,18 +26,6 @@ public class Reg extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Reg frame = new Reg();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -123,18 +111,18 @@ public class Reg extends JFrame {
 			public void mouseClicked(MouseEvent arg0) {
 				try {
 					User nuser = new User();
-					nuser.setName(name.getText());
+					nuser.setname(name.getText());
 					nuser.setDob(dob.getText());
 					nuser.setAddress(address.getText());
 					nuser.setEmail(email.getText());
 					nuser.setUsername(username.getText());
 					nuser.setPass(pass.getText());
-					DBConnect connect = new DBConnect();
-					connect.setNuserData(nuser);
-					Reg rg = new Reg();
-					rg.dispose();
-					Detail dt = new Detail();
-					dt.setVisible(true);
+					//DBConnect connect = new DBConnect();
+					//connect.setNuserData(nuser);
+					//Reg rg = new Reg();
+					//rg.dispose();
+					Detail dt = new Detail(nuser);
+					//dt.setVisible(true);
 				}catch(NullPointerException e) {
 					System.out.println("Please fill all the fields"+e);
 					//TODO front-end: display an error with above message

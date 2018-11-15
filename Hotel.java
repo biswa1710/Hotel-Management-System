@@ -17,23 +17,11 @@ public class Hotel extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Hotel frame = new Hotel();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public Hotel() {
+	public Hotel(User nuser) {
 		setBackground(new Color(255, 140, 0));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -64,10 +52,12 @@ public class Hotel extends JFrame {
 		btnGoBack.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				Hotel h2 = new Hotel();
-				h2.dispose();
-				Detail d4 = new Detail();
-				d4.setVisible(true);
+				//Hotel h2 = new Hotel();
+				//h2.dispose();
+				//Detail d4 = new Detail();
+				//d4.setVisible(true);
+				Detail dt1 = new Detail(nuser);
+				dt1.setVisible(true);
 			}
 		});
 		btnGoBack.setBackground(UIManager.getColor("Button.background"));
