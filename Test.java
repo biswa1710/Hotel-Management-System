@@ -114,7 +114,7 @@ public class Test {
 			public void mouseClicked(MouseEvent e) {
 				User nuser = new User();
 				nuser.setUsername(username.getText());
-				nuser.setPass(password.getText());
+				nuser.setPass(String.valueOf(pass.getPassword()));
 				DBConnect connect = new DBConnect();
 				boolean verify = connect.login(nuser);
 				if(verify) {
