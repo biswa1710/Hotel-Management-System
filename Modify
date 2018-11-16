@@ -1,0 +1,99 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.FlowLayout;
+import java.awt.Color;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class Modify extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField modcin;
+	private JTextField modcout;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Modify frame = new Modify();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Modify() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 140, 0));
+		panel.setBounds(0, 0, 121, 261);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblModify = new JLabel("Modify");
+		lblModify.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblModify.setBounds(25, 104, 63, 32);
+		panel.add(lblModify);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(72, 61, 139));
+		panel_1.setBounds(121, 0, 313, 261);
+		contentPane.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("New Check-in Date");
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel.setBounds(10, 53, 134, 27);
+		panel_1.add(lblNewLabel);
+		
+		JLabel lblNewCheckout = new JLabel("New Check-out Date");
+		lblNewCheckout.setForeground(Color.WHITE);
+		lblNewCheckout.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewCheckout.setBounds(10, 113, 134, 27);
+		panel_1.add(lblNewCheckout);
+		
+		modcin = new JTextField();
+		modcin.setBounds(172, 55, 111, 27);
+		panel_1.add(modcin);
+		modcin.setColumns(10);
+		
+		modcout = new JTextField();
+		modcout.setColumns(10);
+		modcout.setBounds(172, 113, 111, 27);
+		panel_1.add(modcout);
+		
+		JButton btnNewButton = new JButton("Modify Booking");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showMessageDialog(null, "Booking Modified");
+			}
+		});
+		btnNewButton.setBounds(91, 184, 111, 23);
+		panel_1.add(btnNewButton);
+	}
+}
