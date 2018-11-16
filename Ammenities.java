@@ -186,5 +186,17 @@ public class Ammenities extends JFrame {
 		Laundry_1.setColumns(10);
 		Laundry_1.setBounds(286, 143, 17, 20);
 		panel_1.add(Laundry_1);
+		
+		JLabel Price_classic = new JLabel("New label");
+		Price_classic.setForeground(new Color(255, 255, 255));
+		Price_classic.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		Price_classic.setBounds(40, 170, 65, 23);
+		panel_1.add(Price_classic);
+		
+		JLabel Price_deluxe = new JLabel("New label");
+		Price_deluxe.setForeground(Color.WHITE);
+		Price_deluxe.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		Price_deluxe.setBounds(217, 170, 65, 23);
+		panel_1.add(Price_deluxe);
 	}
 }
