@@ -54,20 +54,20 @@ public class Final extends JFrame {
 		JLabel lblNewLabel = new JLabel("Aadhar number");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel.setBounds(30, 50, 100, 20);
+		lblNewLabel.setBounds(30, 48, 100, 20);
 		panel_1.add(lblNewLabel);
 		
-		JLabel lblCheckin = new JLabel("Amount Payable");
-		lblCheckin.setForeground(new Color(255, 255, 255));
-		lblCheckin.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblCheckin.setBounds(30, 140, 100, 20);
-		panel_1.add(lblCheckin);
+		JLabel Amount_pay = new JLabel("Amount Payable");
+		Amount_pay.setForeground(new Color(255, 255, 255));
+		Amount_pay.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		Amount_pay.setBounds(30, 140, 100, 20);
+		panel_1.add(Amount_pay);
 		
-		JLabel lblCheckout = new JLabel("Paisa");
-		lblCheckout.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblCheckout.setForeground(new Color(255, 255, 255));
-		lblCheckout.setBounds(200, 140, 70, 20);
-		panel_1.add(lblCheckout);
+		JLabel Paisa = new JLabel("Paisa");
+		Paisa.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		Paisa.setForeground(new Color(255, 255, 255));
+		Paisa.setBounds(200, 140, 70, 20);
+		panel_1.add(Paisa);
 		
 		aadhar = new JTextField();
 		aadhar.setBounds(148, 50, 100, 20);
@@ -90,7 +90,7 @@ public class Final extends JFrame {
 		});
 		btnNewButton.setBackground(UIManager.getColor("Button.background"));
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnNewButton.setBounds(91,100, 80, 20);
+		btnNewButton.setBounds(110,87, 80, 20);
 		panel_1.add(btnNewButton);
         
         
@@ -111,7 +111,7 @@ public class Final extends JFrame {
 		});
 		btnNewButton2.setBackground(UIManager.getColor("Button.background"));
 		btnNewButton2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnNewButton2.setBounds(65, 212, 180, 23);
+		btnNewButton2.setBounds(68, 200, 180, 23);
 		panel_1.add(btnNewButton2);
 	}
 }
